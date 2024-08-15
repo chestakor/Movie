@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Request Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1c1c1c;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 400;
+            color: #bbbbbb;
+            font-size: 14px;
+        }
+
+        .form-group input[type="text"],
+        .form-group select,
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            background-color: #3a3a3a;
+            color: #ffffff;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group-half {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .form-group-half .form-group {
+            flex: 1;
+        }
+
+        .form-group-half .form-group.year-group {
+            flex: 0.4;
+        }
+
+        .form-group-half .form-group.type-group {
+            flex: 0.5;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group select:focus,
+        .form-group input[type="file"]:focus {
+            background-color: #444444;
+            outline: none;
+        }
+
+        .form-group input[type="file"] {
+            padding: 8px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 14px;
+            border-radius: 5px;
+            border: none;
+            background-color: #e50914;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #cf0812;
+            transform: translateY(-3px);
+        }
+
+        .form-group button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Movie Request Form</h2>
+		<h4 text-align="center"><a href="http://readyshare1.ddns.net/shares">readyshare1.ddns.net</a></h5>
+        <form id="movie-request-form" action="submit_request.php" method="post" enctype="multipart/form-data" onsubmit="return showPopup()">
+            <div class="form-group">
+                <label for="movie-name">Movie/Series Name <span style="color: #e50914;">*</span></label>
+                <input type="text" id="movie-name" name="movie_name" required>
+            </div>
+            <div class="form-group-half">
+                <div class="form-group year-group">
+                    <label for="year">Year</label>
+                    <input type="text" id="year" name="year">
+                </div>
+                <div class="form-group type-group">
+                    <label for="type">Type</label>
+                    <select id="type" name="type">
+                        <option value="movie">Movie</option>
+                        <option value="series">Series</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group-half">
+                <div class="form-group">
+                    <label for="language">Language</label>
+                    <select id="language" name="language">
+                        <option value="english">English</option>
+                        <option value="bangla">Bangla</option>
+                        <option value="dual_audio">Dual Audio</option>
+                        <option value="hindi">Hindi</option>
+                        <option value="korea">Korea</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quality">Quality</label>
+                    <select id="quality" name="quality">
+                        <option value="720p">720p</option>
+                        <option value="1080p">1080p</option>
+                        <option value="360p">360p</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="image">Upload a movie poster (optional)</label>
+                <input type="file" id="image" name="image" accept="image/jpeg, image/png">
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit Request</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function showPopup() {
+            alert("Your request was submitted. We will upload the movie in 2–3 hours.");
+            return true;
+        }
+    </script>
+</body>
+</html>
